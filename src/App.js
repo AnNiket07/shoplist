@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css';
+import Shops from './components/Shops';
 import Shoplist from './components/shoplist';
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
     <div className="App">
      <div className="header">
       <h1>ShopList</h1>
-        <button>Add Shop</button>
+        <Shops />
       </div>
       <div>
         <Shoplist />
