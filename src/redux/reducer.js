@@ -1,21 +1,41 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { combineReducers } from 'redux'
 
-let initialState = [];
+let initialState = {shops:[]};
 
 const addShopReducer = createSlice({
-    name: "shops",
-    initialState,
-    reducers:{
-        //adding shops
-        addShops:(state,action) => {
-            state.push(action.payload);
-            return state;
-        }   
-    }
-})
+  name: "shops",
+  initialState,
+  reducers: {
+    //adding shops
+    addShops: (state, action) => {
+      state.shops.push(action.payload);
+      // return state;
+    },
+    filterShops: (state, action) => {
+      // console.log(state);
+      const {shops}=state;
+      state.shops = shops.filter((shop) => shop.area === action.payload.Area);
+    },
+  },
+});
 
-export const {addShops } = addShopReducer.actions;
+// const filterShopReducer = createSlice({
+//   name: "areashops",
+//   initialState,
+//   reducers: {
+//     //adding shops
+//     filterShops: (state, action) => {
+//       return state.filter((areashop) => areashop.area !== action.payload);
+//     },
+//   },
+// });
+
+export const { addShops, filterShops } = addShopReducer.actions;
 export const reducer = addShopReducer.reducer;
+// const shopreducer = addShopReducer.reducer;
+// const filterReducer = filterShopReducer.reducer;
+// export const reducer = combineReducers({ shopreducer,filterReducer })
 
 //   if (action.type === "ADD") {
 //     return {
@@ -32,13 +52,12 @@ export const reducer = addShopReducer.reducer;
 //   return state;
 // }
 
-
 // shops: [
-    //       {
-    //         shopname: "",
-    //         area: "",
-    //         category: "",
-    //         opendate: "",
-    //         closedDate: "",
-    //       },
-    //   ],
+//       {
+//         shopname: "",
+//         area: "",
+//         category: "",
+//         opendate: "",
+//         closedDate: "",
+//       },
+//   ],

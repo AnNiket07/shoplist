@@ -1,3 +1,5 @@
-// export function add(){
-//     return { type: "ADD" };
-// }
+// export const filterByArea = () => {
+//     return {
+//         type: "action"
+//     };
+// };  

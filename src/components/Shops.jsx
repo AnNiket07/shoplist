@@ -22,7 +22,7 @@ const customStyles = {
 
 const mapStateToProps = (state) => {
   return {
-    shops: state,
+    shops: state.shopreducer,
   };
 };
 
@@ -35,6 +35,7 @@ const mapDispatchToProps = (dispatch) => {
 const Shops = (props) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [shop, setShop] = useState("");
+  const [area, setArea] = useState("");
 
   function openModal() {
     setIsOpen(true);
@@ -47,8 +48,10 @@ const Shops = (props) => {
   const handleChange = (e) => {
     setShop(e.target.value);
   };
-
-  console.log(props);
+  const areaChange = (e) => {
+    setArea(e.target.value);
+  };
+  // console.log(props);
 
   return (
     <div>
@@ -76,27 +79,27 @@ const Shops = (props) => {
                 <option value="Chemist">Chemist</option>
                 <option value="Stationery Shop ">Stationery Shop </option>
               </select>
-            </label>
+            </label>*/}
             <label>
               Area:
-              <select>
+              <select onChange={(e) => areaChange(e)}>
                 <option value="Thane">Thane</option>
                 <option value="Pune">Pune</option>
-                <option selected value="Mumbai Suburban">Mumbai Suburban</option>
+                <option value="Mumbai Suburban">Mumbai Suburban</option>
                 <option value="Nashik">Nashik</option>
                 <option value="Nagpur">Nagpur</option>
                 <option value="Ahmednagar">Ahmednagar</option>
                 <option value="Solapur">Solapur</option>
               </select>
-            </label> */}
+            </label> 
           <button
             type=""
             onClick={() =>
               props.addShop({
                 //object
                 id: Math.floor(Math.random() * 1000),
-                shopname: shop,
-                openstatus: false,
+                item: shop,
+                area: area,
               })
             }
           >
@@ -104,9 +107,13 @@ const Shops = (props) => {
           </button>
       </div>
       </Modal>
-      <div>
-        
-      </div>
+      {/* <div>
+        <ul>
+          {props.shops.map((item) => {
+            return (<div></div>);
+          })}
+        </ul>
+      </div> */}
     </div>
   );
 };
