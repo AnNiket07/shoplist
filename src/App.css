@@ -1,14 +1,55 @@
-/* .header{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 3%;
-}
-.list{
-  display: flex;
-  justify-content: space-around;
-} */
+
 .modalcontainer{
   display: flex;
   flex-direction: column;
+}
+.shopCard{
+  width: 200px;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 7px;
+  /* border: solid 1px black ;    */
+  background-color: white;
+  color: black;
+  box-shadow: 10px 10px 5px rgb(45, 1, 128);
+  /* background-color: rgb(134, 63, 248);
+  color: white; */
+}
+.shoplist{
+  margin: 30px;
+  display: flex;
+  flex-direction: row;
+}
+.App{
+  height: 100vh;
+  background: #866aff;  
+  color: white;
+/* background: -webkit-linear-gradient(to right, #ff9e7b, #eb7a74);   
+background: linear-gradient(to right, #ff9e7b, #eb7a74);  */
+}
+.filterstyle{
+  margin: 50px 50px;
+}
+.modalStyle{
+  padding-top: 30px;
+  padding-right: 50px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.modalheader{
+  display: flex;
+  justify-content: space-around;
+}
+.modalForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+label{
+  margin: 10px;
+}
+button{
+  height: 35px;
 }

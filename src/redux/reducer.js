@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { combineReducers } from 'redux'
+// import { combineReducers } from 'redux'
 
 let initialState = {shops:[]};
 
@@ -17,6 +17,11 @@ const addShopReducer = createSlice({
       const {shops}=state;
       state.shops = shops.filter((shop) => shop.area === action.payload.Area);
     },
+    categoryShops: (state, action) => {
+      // console.log(state);
+      const {shops}=state;
+      state.shops = shops.filter((shop) => shop.category === action.payload.Category);
+    },
   },
 });
 
@@ -31,7 +36,7 @@ const addShopReducer = createSlice({
 //   },
 // });
 
-export const { addShops, filterShops } = addShopReducer.actions;
+export const { addShops, filterShops, categoryShops } = addShopReducer.actions;
 export const reducer = addShopReducer.reducer;
 // const shopreducer = addShopReducer.reducer;
 // const filterReducer = filterShopReducer.reducer;
